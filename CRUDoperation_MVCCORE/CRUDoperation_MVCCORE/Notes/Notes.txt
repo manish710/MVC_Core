@@ -1,0 +1,15 @@
+-- Since in this we are following Code-First Approach hence we are going to create database from our Model classes and cmd as below
+
+CMDs :-
+Add-Migration InitialCreate				-- This create Migrations folder and all the configuration require to crete DB, InitialCreate is a name not a Keyword
+Update-Database							-- This will Update the Database 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Validate Antiforgery token is created and it will be validated whenever form is submitted to server
+--------------------------------------------------------------------------------------------------------------------------------------
+-- Now here we have added Empployee class, hence we need to add in to database, we would use same command
+CMDs:-
+Add-Migration AddEmployeeTable			-- This create Migrations folder and all the configuration require to crete DB, AddEmployeeTable is a name not a Keyword
+Update-Database							-- This will Update the Database 
+

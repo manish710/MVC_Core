@@ -1,0 +1,7 @@
+﻿<ul class="navbar-nav flex-grow-1">
+    @foreach(var item in Model)
+{
+    @*<li class="list-group-item"><a asp-controller="@item.Key" asp-action="Index">@item.Value</a></li>*@
+    <li class="list-group-item"><a href="@item.Key">@item.Value</a></li>
+}
+</ul>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Day3Demos.Models.Products>
+@using Day3Demos.MyControls
+@addTagHelper *, Day3Demos
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    Tag Helper Test:- <br />
+    Here Overridden Tag Control Email to show it in anchor <br/>
+    <email mail-to="manish.dubey">Testing Tag Helper</email>
+</p>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form method="post">
+    Search : <input type="text" name="filterByPname" value="@ViewBag.currentFilter" />
+    <input type="submit" value="Search" />
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PId_SortOrder"]">@Html.DisplayNameFor(model => model.ProductId)</a>
+
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PName_SortOrder"]">@Html.DisplayNameFor(model => model.ProductName)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["UPrice_SortOrder"]">@Html.DisplayNameFor(model => model.UnitPrice)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductId">@Html.Image("/Images/edit.png", "Edit", "22", "22")</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductId">@Html.Image("/Images/details.png", "Details", "22", "22")</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductId">@Html.Image("/Images/Delete.jpg", "Delete","22","22")</a> |
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
