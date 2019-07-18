@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MVCDemo_10Apr2019.Models.Employee>
+@*@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers*@
+
+@{
+    ViewData["Title"] = "List of Employees";
+}
+
+<h1>List of Employees</h1>
+<table border="1" width="50%">
+    <thead>
+        <tr>
+            <th>EmpId</th>
+            <th>Employee Name</th>
+            <th>Salary</th>
+            @*<th>Action</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td><a asp-controller="Employee" asp-action="Details" asp-route-id="@emp.EmpId" >@emp.EmpId</a></td>
+                <td>@emp.EmployeeName</td>
+                <td>@emp.Salary</td>
+                @*<td></td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-controller="Employee" asp-action="Index">Back to Index</a>
+</p>

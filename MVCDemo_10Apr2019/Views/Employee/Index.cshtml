@@ -1,0 +1,18 @@
+﻿@model MVCDemo_10Apr2019.Models.Employee
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Info</h1>
+<p>
+    Employee ID : @Model.EmpId
+</p>
+<p>
+    Employee Name : @Model.EmployeeName
+</p>
+<p>
+    Employee ID : @Model.Salary
+</p>
+<p>
+    <a asp-controller="Employee" asp-action="List">Show All Employees</a>
+</p>

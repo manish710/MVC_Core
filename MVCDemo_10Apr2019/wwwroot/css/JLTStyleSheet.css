@@ -1,0 +1,23 @@
+﻿body {
+    background-color : darkcyan;
+    color:white;
+}
+header {
+    font-family:Algerian;
+    font-size:xx-large;
+    color:burlywood;
+    padding:30px;
+    text-align:center;
+    background-color:grey;
+}
+
+nav {
+    background-color:cadetblue;
+    text-align:right;
+}
+a {
+    margin:5px;
+}
+.navigation {
+    display:inline;
+}

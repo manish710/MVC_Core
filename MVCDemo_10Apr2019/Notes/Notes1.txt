@@ -1,0 +1,16 @@
+Data Source=.;Initial Catalog=NORTHWND;User ID=sa;Password=***********
+
+"server=JLTPUNB-173;database=NORTHWND;Integrated Security=True" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Products, Categories
+
+
+Scaffold-DbContext "server=JLTPUNB-173;database=NORTHWND;Integrated Security=True" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Products, Categories
+------------------------------------------------------------------------------------------------------------------------
+
+Data Source=.;Initial Catalog=NORTHWND;Persist Security Info=True;User ID=sa;Password=***********
+
+Scaffold-DbContext "Data Source=.;Initial Catalog=NORTHWND;Persist Security Info=True;User ID=sa;Password=Password@1234" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Products, Categories
+
+----------------------------------------------------------------------------------------------------------------------
+For lazy loading to work this is command to insdtall package
+
+Install-Package Microsoft.EntityFrameworkCore.Proxies -Version 2.2.4

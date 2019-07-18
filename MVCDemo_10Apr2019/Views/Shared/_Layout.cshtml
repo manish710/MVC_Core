@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/JLTStyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header>Northwind Enterprises</header>
+    <nav>
+        <ul>
+            <li class="navigation"><a asp-controller="Home" asp-action="Index">Home</a> </li>
+            <li class="navigation"><a asp-controller="Employee" asp-action="Index">Employee</a> </li>
+            <li class="navigation"><a asp-controller="Categories" asp-action="Index">Categories</a> </li>
+            <li class="navigation"><a asp-controller="Test" asp-action="Index">Test</a> </li>
+            <li class="navigation"><a asp-controller="Home" asp-action="ContactUs">Contact Us</a> </li>
+
+        </ul>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+

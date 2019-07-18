@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MVCDemo_10Apr2019.Models.Categories>
+<p>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Products.Count()</li>
+        }
+    </ul>
+</p>

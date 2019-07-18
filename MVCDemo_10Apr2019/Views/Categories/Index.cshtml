@@ -1,0 +1,44 @@
+﻿@*@model IEnumerable<MVCDemo_10Apr2019.Models.Categories>*@
+@model MVCDemo_10Apr2019.ViewModel.CategoryProduct_ViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script language="javascript">
+    function getCount(thisObj) {
+        //alert($(thisObj).get(0).id);
+        $.ajax({
+            url: "/Categories/CategoryCount/" + $(thisObj).get(0).id,
+            success: function (result) {
+                $("#ShowCount").html("<strong>Product Count : " + result + "</strong>");
+            }
+        });
+    }
+</script>
+
+<h1>List of Categories</h1>
+<H2>***Example 1 : Display Category and its Product Count Using Ajax and Partial View</H2>
+<p>
+    <ul>
+        @foreach (var item in Model.Categories)
+        {
+            @*<li id="@item.CategoryId"><a asp-controller="Categories" asp-action="ProductListing" asp-route-id="@item.CategoryId">@item.CategoryName</a></li>*@
+            <li id="@item.CategoryId" onclick="getCount(this)">@item.CategoryName</li>
+        }
+    </ul>
+</p>
+<p>
+    <span>Category Wise Product Count</span><br />
+    <partial name="CategoryWiseProductCountView.cshtml" model="@Model.Categories" />
+</p>
+<p>
+    <span>Ajax Result Display as Category Wise Product Count</span><br />
+    <span id="ShowCount"></span>
+</p>
+<br />
+<H2>***Example 2 : Display Category in DD and on its change provide related Product</H2>
+<p><partial name="DropDownList_Categories_PartialView.cshtml" model="@Model.Categories" /></p>
+<p><partial name="CategoryWiseProductList_PartialView.cshtml" model="@Model.Products" /></p>
+

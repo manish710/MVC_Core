@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MVCDemo_10Apr2019.Models.Categories>
+
+<form method="post">
+    <select id="Category" name="Category" asp-items=@(new SelectList(Model,"CategoryId", "CategoryName",ViewBag.SelectedItem)) onchange="OnSelectedIndexChange()"></select>
+</form>
+<script language="Javascript">
+    function OnSelectedIndexChange() {
+        //alert(document.getElementById("Category").value);
+        document.forms[0].submit();
+    }
+</script>
